@@ -20,14 +20,20 @@ public class ProductManagerImpl implements ProductManager{
     }
 
     @Override
-    public List<Product> getProductByPrize() {
-        Collections.sort(this.productList, new Comparator <Product>() {
+    public List<Product> getProductByPrize()
+    {
+        Collections.sort(this.productList, new Comparator <Product>()
+                {
             @Override
-            public int compare(Product o1, Product o2) {
-                return Double.compare(o2.precio, o1.precio);
+            public int compare(Product o1, Product o2)
+            {
+                return Double.compare(o1.precio, o2.precio);
             }
-        });
+
+                 }
+        );
         return this.productList;
+
     }
     public static ProductManagerImpl getInstance() //Singletone, entrada a la instancia
     {
@@ -72,16 +78,6 @@ public class ProductManagerImpl implements ProductManager{
         this.productList.add(p);
     }
 
-    public static void main (String [] args){
-        System.out.println("Hola");
-        ProductManager pm = new ProductManagerImpl();
-        pm.addProduct("Cafe", "cortado",2);
-        pm.addProduct("Cafe con Leche", "muy caliente",1);
-        pm.addProduct("Coca-Cola", "muy fria",3);
-
-        List<Product> lista = pm.getProductByPrize();
-        System.out.println(Arrays.asList(lista.toArray()));
-    }
     public int sizeProducto()
     {
         int ret = this.productList.size();

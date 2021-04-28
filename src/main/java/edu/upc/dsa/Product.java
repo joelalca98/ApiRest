@@ -8,12 +8,6 @@ public class Product {
     String name;
     String pedido;
 
-    public Product(){
-        this.id = this.id;
-        this.description = this.description;
-        this.precio = this.precio;
-
-    }
 
     public Product(int cantidad, String name) {
         this.cantidad = cantidad;
@@ -21,6 +15,9 @@ public class Product {
     }
 
     public Product(String id, String description, double precio) {
+        this.id = this.id;
+        this.description = this.description;
+        this.precio = this.precio;
     }
 
     public String toString () {

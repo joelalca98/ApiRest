@@ -1,14 +1,18 @@
 package edu.upc.dsa;
 
+
+import org.glassfish.grizzly.http.server.HttpServer;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.List;
+import javax.ws.rs.client.WebTarget;
 
 import static org.junit.Assert.assertEquals;
 
 public class PedirTest {
+
+
     @Before
 
     public void SetUp ()
@@ -34,7 +38,6 @@ public class PedirTest {
         order.addProduct(4,"fanta");
         order.addProduct(2, "cocacola");
         ProductManagerImpl.getInstance().newOrder(order);
-        ProductManagerImpl.getInstance().processOrder();
     }
 
     @After
@@ -42,5 +45,6 @@ public class PedirTest {
     {
         ProductManagerImpl.delete();
     }
+
 
 }

@@ -14,11 +14,11 @@ public class PedidoService {
     public PedidoService () {
         pedidos = new ArrayList<>();
 
-        Product p1 = new Product ();
+        Product p1 = new Product("cafe", "blabla", 2);
         p1.setPedido("Primer pedido");
         pedidos.add(p1);
 
-        Product p2 = new Product ();
+        Product p2 = new Product("cortado", "blabla", 5);
         p2.setPedido("Segundo pedido");
         pedidos.add(p2);
 
@@ -26,17 +26,19 @@ public class PedidoService {
     @GET
     @Path("/got/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Product getpedido(@PathParam("id") int id) {
+    public Product getPedido(@PathParam("id") int id) {
         return (Product) pedidos.get(id);
     }
     @GET
     @Path("/get")
     @Produces(MediaType.APPLICATION_JSON)
     public Product getRealizarPedido() {
-        Product product = new Product();
+        Product product = new Product("cafe", "blabla", 2);;
         product.setPedido("blabla");
         return product;
     }
+
+
     @POST
     @Path("/new")
     @Consumes(MediaType.APPLICATION_JSON)
